@@ -70,7 +70,7 @@ Tutorial.getAllPublished = result => {
 
 Tutorial.updateById = (id,tutorial,result) => {
     sql.query(
-        "UPDATE tutorials SET title = ?, description = ?, published = ? WHERE id = ?", [tutorial.title, tutorial.description,tutorial.published, id], (err,res) => {
+        "UPDATE tutorials SET title = ?, description = ?, published = ? WHERE id = ?", [tutorial.title, tutorial.description,tutorial.published || false, id], (err,res) => {
             if(err){
                 console.log("error: ", err);
                 result(null, err);
